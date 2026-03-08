@@ -41,11 +41,9 @@ bookstore_system/
 ├── database/
 │   └── inventory.json          # Flat-file JSON database
 ├── modules/
-│   ├── __init__.py
 │   ├── inventory_module.py     # Receives orders, updates stock
 │   └── sales_module.py         # Validates input, builds orders
 ├── utils/
-│   ├── __init__.py
 │   └── validator.py            # All input validation logic
 ├── main.py                     # Entry point — interactive menu
 └── task4_test.py               # API simulation & security demo
