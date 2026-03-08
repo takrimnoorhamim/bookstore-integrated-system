@@ -97,8 +97,8 @@ Customer Input
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/bookstore-system.git
-cd bookstore-system
+git clone https://github.com/takrimnoorhamim/bookstore-integrated-system.git
+cd bookstore-integrated-system
 ```
 
 ### Run the interactive system
