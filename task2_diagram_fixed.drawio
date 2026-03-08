@@ -1,0 +1,141 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" version="29.6.1">
+  <diagram name="Task 2 - Integration Design Diagram" id="bit1323-task2-fixed">
+    <mxGraphModel dx="3864" dy="1668" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Nnf5qsD5TWgBqm3YNJRM-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1310" width="930" x="-30" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A1A1A;strokeColor=#1A1A1A;fontColor=#FFFFFF;fontSize=13;fontStyle=1;arcSize=50;" value="START" vertex="1">
+          <mxGeometry height="40" width="200" x="325" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;" target="customer_input">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="customer_input" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1d4e89;fontColor=#1d4e89;fontSize=12;fontStyle=1;" value="👤 Customer Provides Input&#xa;ISBN  ·  Quantity  ·  Email" vertex="1">
+          <mxGeometry height="55" width="400" x="225" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="customer_input" style="edgeStyle=orthogonalEdgeStyle;" target="security">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="security" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fdf0eb;strokeColor=#b5451b;fontColor=#b5451b;fontSize=12;fontStyle=1;" value="🔒 SECURITY POINT — Email Masking&#xa;alice@mail.com → a***@mail.com  (_mask_email)" vertex="1">
+          <mxGeometry height="55" width="400" x="225" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="security" style="edgeStyle=orthogonalEdgeStyle;" target="d_isbn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d_isbn" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1d4e89;fontColor=#1d4e89;fontSize=12;fontStyle=1;verticalAlign=middle;" value="ISBN Valid?" vertex="1">
+          <mxGeometry height="90" width="200" x="325" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="isbn_error" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0eb;strokeColor=#b5451b;fontColor=#b5451b;fontSize=11;fontStyle=0;" value="❌ Error: ISBN not found&#xa;(Transaction Stopped)" vertex="1">
+          <mxGeometry height="44" width="190" x="60" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="e_isbn_no" edge="1" parent="1" source="d_isbn" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b5451b;fontColor=#b5451b;fontStyle=1;fontSize=10;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDX=0;exitDY=0;" target="isbn_error" value="NO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_isbn_no_end" edge="1" parent="1" source="isbn_error" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b5451b;endArrow=block;endFill=1;" target="end" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="405" />
+              <mxPoint x="40" y="1310" />
+              <mxPoint x="425" y="1310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ann_isbn" parent="1" style="text;html=1;strokeColor=#1d4e89;fillColor=#dae8fc;align=center;verticalAlign=middle;rounded=1;fontSize=9;fontColor=#1d4e89;dashed=1;" value="✔ validate_isbn()" vertex="1">
+          <mxGeometry height="24" width="120" x="660" y="393" as="geometry" />
+        </mxCell>
+        <mxCell id="e_isbn_yes" edge="1" parent="1" source="d_isbn" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2d6a4f;fontColor=#2d6a4f;fontStyle=1;fontSize=10;endArrow=block;endFill=1;" target="d_stock" value="YES">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d_stock" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2d6a4f;fontColor=#2d6a4f;fontSize=12;fontStyle=1;verticalAlign=middle;" value="Stock Sufficient?" vertex="1">
+          <mxGeometry height="90" width="200" x="325" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="stock_error" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0eb;strokeColor=#b5451b;fontColor=#b5451b;fontSize=11;fontStyle=0;" value="❌ Error: Insufficient Stock&#xa;(Transaction Stopped)" vertex="1">
+          <mxGeometry height="44" width="190" x="60" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="e_stk_no" edge="1" parent="1" source="d_stock" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b5451b;fontColor=#b5451b;fontStyle=1;fontSize=10;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDX=0;exitDY=0;" target="stock_error" value="NO">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_stk_no_end" edge="1" parent="1" source="stock_error" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b5451b;endArrow=block;endFill=1;" target="end" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="540" />
+              <mxPoint x="40" y="1310" />
+              <mxPoint x="425" y="1310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ann_stk" parent="1" style="text;html=1;strokeColor=#2d6a4f;fillColor=#d5e8d4;align=center;verticalAlign=middle;rounded=1;fontSize=9;fontColor=#2d6a4f;dashed=1;" value="✔ validate_stock()" vertex="1">
+          <mxGeometry height="24" width="120" x="660" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="e_stk_yes" edge="1" parent="1" source="d_stock" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2d6a4f;fontColor=#2d6a4f;fontStyle=1;fontSize=10;endArrow=block;endFill=1;" target="sales_module" value="YES">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sales_module" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#1d4e89;fontColor=#1d4e89;fontSize=12;fontStyle=1;" value="📤 Sales Module — Build Order&#xa;json.dumps() → converts order to JSON string" vertex="1">
+          <mxGeometry height="55" width="400" x="225" y="635" as="geometry" />
+        </mxCell>
+        <mxCell id="ann_dumps1" parent="1" style="text;html=1;strokeColor=#5c35a0;fillColor=#f3eeff;align=center;verticalAlign=middle;rounded=1;fontSize=9;fontColor=#5c35a0;dashed=1;" value="🔁 json.dumps()" vertex="1">
+          <mxGeometry height="24" width="110" x="660" y="648" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="sales_module" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1a1a1a;fontColor=#888888;fontSize=9;fontStyle=2;" target="json_payload" value="JSON string transmitted">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="json_payload" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3eeff;strokeColor=#5c35a0;fontColor=#5c35a0;fontSize=11;fontStyle=0;align=left;spacingLeft=10;fontFamily=Courier New;" value="{&quot;isbn&quot;: &quot;ISBN001&quot;, &quot;quantity&quot;: 3, &quot;customer_email&quot;: &quot;a***@mail.com&quot;}" vertex="1">
+          <mxGeometry height="44" width="400" x="225" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="json_payload" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1a1a1a;fontColor=#888888;fontSize=9;fontStyle=2;" target="inv_module" value="receive_order(json_string)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inv_module" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#2d6a4f;fontColor=#2d6a4f;fontSize=12;fontStyle=1;" value="📥 Inventory Module — Receive Order&#xa;json.loads() → parse → deduct stock → save to inventory.json" vertex="1">
+          <mxGeometry height="55" width="400" x="225" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="ann_loads" parent="1" style="text;html=1;strokeColor=#5c35a0;fillColor=#f3eeff;align=center;verticalAlign=middle;rounded=1;fontSize=9;fontColor=#5c35a0;dashed=1;" value="🔁 json.loads()" vertex="1">
+          <mxGeometry height="24" width="110" x="660" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="inv_module" style="edgeStyle=orthogonalEdgeStyle;" target="d_lowstock">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="d_lowstock" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fdf0eb;strokeColor=#b5451b;fontColor=#b5451b;fontSize=12;fontStyle=1;verticalAlign=middle;" value="Stock ≤ 5?" vertex="1">
+          <mxGeometry height="90" width="200" x="325" y="925" as="geometry" />
+        </mxCell>
+        <mxCell id="low_alert" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0eb;strokeColor=#b5451b;fontColor=#b5451b;fontSize=11;fontStyle=1;" value="⚠️ LOW STOCK ALERT&#xa;Print warning to terminal" vertex="1">
+          <mxGeometry height="44" width="190" x="650" y="948" as="geometry" />
+        </mxCell>
+        <mxCell id="e_low_yes" edge="1" parent="1" source="d_lowstock" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b5451b;fontColor=#b5451b;fontStyle=1;fontSize=10;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDX=0;exitDY=0;" target="low_alert" value="YES">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_alert_rejoin" edge="1" parent="1" source="low_alert" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#b5451b;fontColor=#b5451b;fontSize=9;fontStyle=2;endArrow=block;endFill=1;" target="json_response" value="Rejoin main flow">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="745" y="1050" />
+              <mxPoint x="625" y="1050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_low_no" edge="1" parent="1" source="d_lowstock" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2d6a4f;fontColor=#2d6a4f;fontStyle=1;fontSize=10;endArrow=block;endFill=1;" target="json_response" value="NO (Continue)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="json_response" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f3eeff;strokeColor=#5c35a0;fontColor=#5c35a0;fontSize=11;fontStyle=0;align=left;spacingLeft=10;fontFamily=Courier New;" value="{&quot;status&quot;: &quot;success&quot;, &quot;remaining_stock&quot;: 7, &quot;low_stock_alert&quot;: null}" vertex="1">
+          <mxGeometry height="44" width="400" x="225" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="ann_dumps2" parent="1" style="text;html=1;strokeColor=#5c35a0;fillColor=#f3eeff;align=center;verticalAlign=middle;rounded=1;fontSize=9;fontColor=#5c35a0;dashed=1;" value="🔁 json.dumps() response" vertex="1">
+          <mxGeometry height="24" width="150" x="660" y="1075" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="json_response" style="edgeStyle=orthogonalEdgeStyle;" target="receipt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="receipt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#c9a227;fontColor=#7a5c00;fontSize=12;fontStyle=1;" value="🧾 Generate Purchase Receipt&#xa;Title · Qty · Total Price · Masked Email · Remaining Stock" vertex="1">
+          <mxGeometry height="55" width="400" x="225" y="1155" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="receipt" style="edgeStyle=orthogonalEdgeStyle;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A1A1A;strokeColor=#1A1A1A;fontColor=#FFFFFF;fontSize=13;fontStyle=1;arcSize=50;" value="END" vertex="1">
+          <mxGeometry height="40" width="200" x="325" y="1265" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
