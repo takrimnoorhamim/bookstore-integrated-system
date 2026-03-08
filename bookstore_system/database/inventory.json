@@ -1,0 +1,32 @@
+{
+    "ISBN001": {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "price": 45.0,
+        "stock": 44
+    },
+    "ISBN002": {
+        "title": "Harry Potter",
+        "author": "J.K. Rowling",
+        "price": 55.0,
+        "stock": 33
+    },
+    "ISBN003": {
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "price": 80.0,
+        "stock": 12
+    },
+    "ISBN004": {
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "price": 65.0,
+        "stock": 15
+    },
+    "ISBN005": {
+        "title": "Java Course",
+        "author": "Takrim Noor Hamim",
+        "price": 65.0,
+        "stock": 1
+    }
+}
